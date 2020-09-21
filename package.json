@@ -1,6 +1,6 @@
 {
   "name": "vue-element-password-input",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "password input component for Vue",
   "keywords": [
     "vue-element-password-input",
@@ -8,7 +8,7 @@
     "password",
     "input"
   ],
-  "main": "dist/password-input.umd.min.min.js",
+  "main": "dist/password-input.umd.min.js",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
