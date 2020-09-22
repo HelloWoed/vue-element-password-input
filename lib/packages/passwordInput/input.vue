@@ -106,6 +106,7 @@ export default {
   .starBox{
       padding-left: 1.9rem;
       position: absolute;
+      display: inline-flex;
       z-index: 100;
       .starItem{
         display: inline-block;
