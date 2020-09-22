@@ -43,18 +43,35 @@ Vue.use(passwordInput);
 ```javascript
 ...
 data(){
-    return {
-      loginForm:{},
-    }
+  return {
+    loginForm:{},
+  }
 },
 computed:{
-    loginRules(){
-      return {
-        password: [
-          {required: true,message: '请输入密码', trigger: 'change'}
-        ]
-      }
+  loginRules(){
+    return {
+      password: [
+        {required: true,message: '请输入密码', trigger: 'blur'},
+        {validator: this.validPassword, trigger: "blur"}
+      ]
     }
+  }
 },
+methods:{
+  validPassword(rule, value, callback){
+    let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
+    if(reg.test(value)){
+      callback();
+    }else{
+      callback(new Error('密码包含大小写字母和数字！'));
+    }
+  },
+  jumpForgetPasswd(){
+
+  },
+  handleLogin(){
+    
+  }
+}
 ...
 ```
