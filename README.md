@@ -14,8 +14,8 @@ Vue.use(passwordInput);
 ```
 
 ### 使用
-<!-- 支持v-model绑定 -->
 ```html
+<!-- 支持v-model绑定 -->
 <el-form size="medium" :model="loginForm" ref="loginForm" :rules="loginRules">
     <el-form-item prop="username">
         <el-input
