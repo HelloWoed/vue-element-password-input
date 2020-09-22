@@ -7,12 +7,14 @@ npm install vue-element-password-input
 
 ### 引入
 ```javascript
+// main.js
 import passwordInput from 'vue-element-password-input'
 
 Vue.use(passwordInput);
 ```
 
 ### 使用
+<!-- 支持v-model绑定 -->
 ```html
 <el-form size="medium" :model="loginForm" ref="loginForm" :rules="loginRules">
     <el-form-item prop="username">
