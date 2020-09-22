@@ -1,7 +1,31 @@
 <template>
   <div class="hello">
     <h1>密码输入框</h1>
-    <vue-element-password-input />
+    <div class="loginForm">
+      <el-form size="medium" :model="loginForm" ref="loginForm" :rules="loginRules">
+          <el-form-item prop="username">
+              <el-input
+                  placeholder="请输入用户名"
+                  prefix-icon="el-icon-user"
+                  v-model="loginForm.username"
+                  ></el-input>
+          </el-form-item>
+          <el-form-item prop="password">
+            <vue-element-password-input 
+            v-model="loginForm.password" 
+            prefixIcon="el-icon-lock"
+            placeholder="请输入密码" 
+            inputSize="medium"
+            :maxlength="16" />
+          </el-form-item>
+          <el-form-item>
+              <el-button type="primary" class="handleLogin" @click.native.prevent="handleLogin">登录</el-button>
+          </el-form-item>
+          <el-row type="flex" justify="end">
+              <el-link :underline="false" type="primary" @click="jumpForgetPasswd">忘记密码</el-link>
+          </el-row>
+      </el-form>
+    </div>
   </div>
 </template>
 
@@ -10,6 +34,28 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data(){
+    return {
+      loginForm:{},
+    }
+  },
+  computed:{
+    loginRules(){
+      return {
+        password: [
+          {required: true,message: '请输入密码', trigger: 'change'}
+        ]
+      }
+    }
+  },
+  methods:{
+    jumpForgetPasswd(){
+
+    },
+    handleLogin(){
+      
+    }
   }
 }
 </script>
@@ -29,5 +75,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.loginForm{
+  padding: 0 30%;
 }
 </style>

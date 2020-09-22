@@ -13,6 +13,7 @@
       ref="inputText"
       v-model="value"
       clearable
+      :prefix-icon="prefixIcon"
       :size="inputSize"
       @keyup.native="handelKeyup"
       @clear="clearVal"
@@ -27,6 +28,10 @@ export default {
     placeholder: {
       type: String,
       default: '请输入密码',
+    },
+    prefixIcon:{
+      type: String,
+      default: 'el-icon-lock',
     },
     inputSize: { // medium / small / mini
       type: String,
@@ -59,7 +64,7 @@ export default {
   },
   methods: {
     setInputPaddingLeft() {
-      const inputPaddingLeft = `${this.text.length * 0.5 + 1}rem`;
+      const inputPaddingLeft = `${this.text.length * 0.5 + 1.9}rem`;
       // document.documentElement.style.setProperty('--inputPaddingLeft', inputPaddingLeft);
       this.$refs.inputText.$el.querySelector('input').style.paddingLeft = inputPaddingLeft;
       this.$emit('input', this.text);
@@ -83,11 +88,11 @@ export default {
 </script>
 <style lang="less" scoped>
   :root{
-    --inputPaddingLeft: 1rem;
+    --inputPaddingLeft: 1.9rem;
   }
   /deep/ .valInput{
     input{
-      padding-left: var(--inputPaddingLeft,1rem);
+      padding-left: var(--inputPaddingLeft,1.9rem);
     }
   }
   .text-input{
@@ -99,7 +104,7 @@ export default {
     flex: 1;
   }
   .starBox{
-      padding-left: 20px;
+      padding-left: 1.9rem;
       position: absolute;
       z-index: 100;
       .starItem{
